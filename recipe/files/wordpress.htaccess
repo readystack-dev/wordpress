@@ -1,0 +1,13 @@
+# BEGIN WordPress
+# The rules WordPress writes for a site at / (WP_Rewrite::mod_rewrite_rules()). Shipped read-only: core is not
+# writable in this image.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

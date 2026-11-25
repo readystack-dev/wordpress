@@ -1,0 +1,362 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "wordpress",
+ "tag": "7.1.5-CE-ubuntu24.04-r5",
+ "tarball": "ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r5.tar.gz",
+ "tarball_sha256": "923db96ae632e8b84ce2db6c434096c5ac09a5a21e57241a6ba6f18c49f8b7a9",
+ "kit_root": "7.1.5-CE-ubuntu24.04-r5",
+ "generated_at": "2026-11-25T08:16:56Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://github.com/WordPress/WordPress",
+   "ref": "7.1.5",
+   "commit": "7be93a9688cfcac7ea1c3ff00ad970ed8a47849b",
+   "url": "https://github.com/WordPress/WordPress/tree/7be93a9688cfcac7ea1c3ff00ad970ed8a47849b",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://github.com/WordPress/WordPress",
+    "ref": "7.1.5"
+   },
+   {
+    "kind": "git",
+    "url": "https://github.com/WordPress/sqlite-database-integration",
+    "ref": "v3.0.2"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0"
+  },
+  "build_method": "source-rebuild-php",
+  "source_date_epoch": 1795587761,
+  "source_date_epoch_utc": "2026-11-25T06:22:41Z",
+  "target": {
+   "image_manifest_digest": "sha256:42d0fb00e910d9fe4dc6bef5ad35c795d74e88eefb77b7c0a755eaaaba4a2a2f",
+   "config_digest": "sha256:db2be01e8a2107afad870155daed09b9be306c77ad62cebbe6d2b7896a20d497",
+   "image": "readystack/wordpress:7.1.5-CE-ubuntu24.04-r5"
+  },
+  "checksummed_files": 8995
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 121,
+   "sha256": "c506d719c30d576fe42dd46d1cf2a9a05f4f3f364b41e02e4ffad3a1fc19500e",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 1297626,
+   "sha256": "f2be81e7d967e622a0a1978f825a49e9ee44b1b496add200418a98adf68a7e2a",
+   "lines": 8995,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 7952,
+   "sha256": "33a27e07ff6ae6bc69f3a97d609f2fbe284351d50a609a1d48a5be02a27d8ad2",
+   "lines": 90,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 7952,
+   "sha256": "33a27e07ff6ae6bc69f3a97d609f2fbe284351d50a609a1d48a5be02a27d8ad2",
+   "lines": 90,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 7952,
+   "sha256": "33a27e07ff6ae6bc69f3a97d609f2fbe284351d50a609a1d48a5be02a27d8ad2",
+   "lines": 90,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 2870,
+   "sha256": "f9adb5f85a31b5042860f3cb6e252d79cecc333aebb011d5ddf755cc72ef5bd0",
+   "lines": 21,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 801939,
+   "sha256": "11441487e8898b7d92c50513aae426e39102232d7fa381fd056503aebf077737",
+   "lines": 10137,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 685996,
+   "sha256": "90651ad60477960e6b3bb771a91fa6c3b1165c137ba4b0b9a9185e88bcfbfa84",
+   "lines": 8997,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "README.md",
+   "size": 3345,
+   "sha256": "178ee6d3094e1dafafe21a714fd1fec624bfb1866d1ad69a10cb3140cf5de2a6",
+   "lines": 40,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "85c2388a281feda64d5c87e483a471e86f1d04b17aafa95f1c6d7ab741b99d50",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 306,
+   "sha256": "1c524fd76dafdc4d34a3bfce2dfcb1fb82a7b337a9e060db02e1bd815fddd7c2",
+   "lines": 6,
+   "public": "full"
+  },
+  {
+   "path": "TRADEMARK.md",
+   "size": 707,
+   "sha256": "3b1ffeb8b21860ce04f9013987e40dd58fac2db63550c89b1f8a23c4885c5042",
+   "lines": 13,
+   "public": "account"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "apache2-foreground",
+   "size": 732,
+   "sha256": "003f1949772aed38f5bc2cc4dd3193b3277f979735fd94bb18b863169b3c260d",
+   "lines": 18,
+   "public": "account"
+  },
+  {
+   "path": "docker-entrypoint.sh",
+   "size": 2275,
+   "sha256": "f55c341e707f1a6c6d20590871ce51c5f748eedeac5b28b446b2461fcc089d7b",
+   "lines": 48,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2626,
+   "sha256": "4204e55d67f836a4cc80ae120e2e3fbdf88721a63e11b1ecc164a081fca9fb6e",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6168,
+   "sha256": "ba669d22023b0370761e7c1f961cbfced4e8d136b6ea5d96b319724ca4137ae0",
+   "lines": 60,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2034,
+   "sha256": "951f8cc3c270c189b6efec9a0318d7197f5945942caf79f52376c79f0d2aa303",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 52,
+   "sha256": "defcedc64223fdc31ce86679b274104e5a4e9c5ef76cd9cd46e4fe7e7d2f40ec",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 8484,
+   "sha256": "afb41b62481cfa1da73d42231eef51a2f4f0f65df842b08ed75f7c45c07893a1",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 652,
+   "sha256": "e0d496adbb59e80674aa9d8d899baa7fbcf9c3cb7b70c5bd4f2d5a65cad8155f",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 292707,
+   "sha256": "55f6bfca7d3bc1b8a6a4db327763674c7a69b56d0fef27aeb6e0c22be0a93079",
+   "lines": 5007,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 310,
+   "sha256": "e65b75e62e19e5674ee13dd501440ad80a3b10760d6c4e6f3b1ae7793f1381dd",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 183,
+   "sha256": "fed73e62fce30593d1f1793d4af13b7da79c3cf186b948fdfa18edc69a4b5cb1",
+   "lines": 15,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 8257,
+   "sha256": "ceda36b2432fcb0c2627e7740f42f8c4e1dc70ed08cc5e5685661f0ac2ce5497",
+   "lines": 246,
+   "public": "account"
+  },
+  {
+   "path": "readystack-mod-php.conf",
+   "size": 390,
+   "sha256": "f8eb513ee5aeec1252dd78f55dab6585ba27cad8b958b89190de7593103d2bba",
+   "lines": 9,
+   "public": "account"
+  },
+  {
+   "path": "readystack-php.conf",
+   "size": 396,
+   "sha256": "d15053c81ce9cba0fdd7c17d7b7456c844629b12ab521b072033baee92655a93",
+   "lines": 13,
+   "public": "account"
+  },
+  {
+   "path": "readystack-php.ini",
+   "size": 281,
+   "sha256": "a6b6e823b84e85b51b368f40de925bea7fcc1c63991e09fcff27fe5705c136ca",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "readystack-sqlite-health.php",
+   "size": 603,
+   "sha256": "837d673a0a14897387e0b6d87ec39528c3635bedf1869d3113a08411e3b24b1c",
+   "lines": 13,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1180,
+   "sha256": "1420ace5ac5b7101c2d881d252cc896bd29ab64b477451792a388b76aae1e914",
+   "lines": 33,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "wordpress-vhost.conf",
+   "size": 1484,
+   "sha256": "a5e769291c37b2f295d919ee048d589b6bcb13d36b98818c8a562a5cdb86a93a",
+   "lines": 33,
+   "public": "account"
+  },
+  {
+   "path": "wordpress.htaccess",
+   "size": 433,
+   "sha256": "7f1d43ba34c3ade58e852fad5c61f148624a7868c389e90e5bd099c6e88e83a0",
+   "lines": 13,
+   "public": "account"
+  },
+  {
+   "path": "wordpress.ini",
+   "size": 588,
+   "sha256": "486bb1891745d935131e458b6a51879ffd9563866827d3af357d2c76a6d3186a",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "wp-cli-env.php",
+   "size": 1885,
+   "sha256": "72679abf7d1958c8ba2e8c33171618f40002c94dadaf3a9c2c43414472df83c8",
+   "lines": 40,
+   "public": "account"
+  },
+  {
+   "path": "wp-config.php",
+   "size": 2888,
+   "sha256": "c524058d84e456e5c6d20dfd05e02a7e1c00cb2082d8a36b3a9bdea2e1c0d2f6",
+   "lines": 61,
+   "public": "account"
+  },
+  {
+   "path": "wp-first-start.php",
+   "size": 3331,
+   "sha256": "b44ea2be9aec7de7f032cc427744e49c44f80dd3860604aafc4b9ae729e5dbd8",
+   "lines": 65,
+   "public": "account"
+  },
+  {
+   "path": "wp-reset-password.php",
+   "size": 1025,
+   "sha256": "7c89514e25a3047df8cddc015abb98fe69faccd9b580b6425eeda7c4e34fec8f",
+   "lines": 23,
+   "public": "account"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 5,
+   "bytes": 29796854
+  },
+  "docs": {
+   "files": 5082,
+   "bytes": 147800355
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 3869,
+   "bytes": 154658652
+  }
+ },
+ "redacted_files": 0
+}

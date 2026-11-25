@@ -1,0 +1,165 @@
+{
+  "schema": "kitforge.build_recipe.v1",
+  "slug": "wordpress",
+  "image": "readystack/wordpress:7.1.5-CE-ubuntu24.04-r5",
+  "build_method": "source-rebuild-php",
+  "source": {
+    "repo": "https://github.com/WordPress/WordPress",
+    "ref": "7.1.5",
+    "php_version": "8.3",
+    "_php_version_note": "WordPress 7.1.4 requires PHP >= 7.4 (wp-includes/version.php $required_php_version) and its readme.html recommends 8.3+; the SQLite plugin supports PHP 7.2+. Since 2026-10-10 the image runs Ubuntu 24.04's own PHP 8.3 (it reports 8.3.6; Ubuntu backports security fixes into it) instead of the official php:8.4-apache-bookworm image, whose Debian 12 base our cerodeo-v1 scan grades F on vulnerabilities Debian does not fix. PHP 8.4 on Ubuntu 24.04 would need a third-party archive (a PPA): a supply-chain decision, not taken here; preflight check_php BLOCKs a retarget whose source needs more than the image's PHP.",
+    "build_packages": [
+      "git",
+      "ca-certificates"
+    ],
+    "php_extensions": [
+      "gd",
+      "intl",
+      "zip",
+      "exif",
+      "bcmath",
+      "mysqli",
+      "opcache",
+      "pdo_sqlite",
+      "curl",
+      "dom",
+      "mbstring",
+      "xml",
+      "fileinfo",
+      "sodium"
+    ],
+    "_ext_note": "docker-library/wordpress installs bcmath exif gd(avif,freetype,jpeg,webp) intl mysqli zip + pecl imagick. This kit keeps all of them except imagick and gd's AVIF, from Ubuntu's packages (runtime_packages): php8.3-gd (Ubuntu's libgd3: freetype, jpeg, png, gif, webp; gd_info() reports no AVIF), -intl, -zip, -bcmath, -mysql (mysqli for the optional MySQL/MariaDB mode, mysqlnd, no client library; the package also carries pdo_mysql), -sqlite3 (pdo_sqlite, what the SQLite drop-in needs), -curl, -mbstring, -xml; exif and fileinfo with php8.3-common, opcache and sodium with php8.3-cli. source.php_extensions is what the build asserts is loaded in both the Apache and the CLI configuration; post_copy_run still checks php -m and a warning-free PHP start.",
+    "submodule_init_cmd": "git clone --depth 1 --branch v3.0.2 -q https://github.com/WordPress/sqlite-database-integration /tmp/sqlite-src && test \"$(git -C /tmp/sqlite-src rev-parse HEAD)\" = 085ea60b16c648d40464654afa667f0812c040de && mkdir -p /src/readystack-vendor && cp -R /tmp/sqlite-src/packages/plugin-sqlite-database-integration /src/readystack-vendor/sqlite-database-integration && rm /src/readystack-vendor/sqlite-database-integration/wp-includes/database && cp -R /tmp/sqlite-src/packages/mysql-on-sqlite/src /src/readystack-vendor/sqlite-database-integration/wp-includes/database && rm -f /src/readystack-vendor/sqlite-database-integration/composer.json && test -f /src/readystack-vendor/sqlite-database-integration/wp-includes/database/version.php && rm -rf /tmp/sqlite-src",
+    "_submodule_init_note": "WordPress has no submodules; this is the renderer's post-clone hook (RUN after `git clone`, in /src, online). It vendors WordPress.org's SQLite Database Integration at tag v3.0.2, refusing anything but commit 085ea60b16c648d40464654afa667f0812c040de (tags can move), and assembles the plugin the way upstream's bin/build-sqlite-plugin-zip.sh does. NOT touched by scripts/retarget.py: bump tag + commit here (and sqlite_integration below) by hand when a newer plugin release is needed.",
+    "sqlite_integration": {
+      "repo": "https://github.com/WordPress/sqlite-database-integration",
+      "ref": "v3.0.2",
+      "commit": "085ea60b16c648d40464654afa667f0812c040de",
+      "commit_date": "2026-09-10T09:50:45+02:00",
+      "license": "GPL-2.0-or-later",
+      "installed_at": "/usr/src/wordpress/sqlite-database-integration"
+    },
+    "prune_paths": [
+      ".git",
+      "wp-content/themes/twentyten",
+      "wp-content/themes/twentyeleven",
+      "wp-content/themes/twentytwelve",
+      "wp-content/themes/twentythirteen",
+      "wp-content/themes/twentyfourteen",
+      "wp-content/themes/twentyfifteen",
+      "wp-content/themes/twentysixteen",
+      "wp-content/themes/twentyseventeen",
+      "wp-content/themes/twentynineteen",
+      "wp-content/themes/twentytwenty",
+      "wp-content/themes/twentytwentyone",
+      "wp-content/themes/twentytwentytwo",
+      "wp-content/themes/twentytwentyfive/package.json",
+      "wp-content/themes/twentytwentyfive/package-lock.json"
+    ],
+    "_prune_note": "The 12 older default themes are not in the wordpress.org 7.1.2 download (only Twenty Twenty-Three/Four/Five are); pruning them makes the shipped wp-content match the release minus Akismet. twentytwentyfive's package.json/package-lock.json are the theme's CSS build manifests (118 dev-only npm packages: postcss/cssnano/browserslist), not runtime code; removed so no SBOM tool catalogues an npm tree that is not installed.",
+    "app_copies": [
+      {
+        "src": "wp-admin",
+        "dst": "/var/www/html/wp-admin"
+      },
+      {
+        "src": "wp-includes",
+        "dst": "/var/www/html/wp-includes"
+      },
+      {
+        "src": "index.php",
+        "dst": "/var/www/html/index.php"
+      },
+      {
+        "src": "license.txt",
+        "dst": "/var/www/html/license.txt"
+      },
+      {
+        "src": "readme.html",
+        "dst": "/var/www/html/readme.html"
+      },
+      {
+        "src": "wp-activate.php",
+        "dst": "/var/www/html/wp-activate.php"
+      },
+      {
+        "src": "wp-blog-header.php",
+        "dst": "/var/www/html/wp-blog-header.php"
+      },
+      {
+        "src": "wp-comments-post.php",
+        "dst": "/var/www/html/wp-comments-post.php"
+      },
+      {
+        "src": "wp-cron.php",
+        "dst": "/var/www/html/wp-cron.php"
+      },
+      {
+        "src": "wp-links-opml.php",
+        "dst": "/var/www/html/wp-links-opml.php"
+      },
+      {
+        "src": "wp-load.php",
+        "dst": "/var/www/html/wp-load.php"
+      },
+      {
+        "src": "wp-login.php",
+        "dst": "/var/www/html/wp-login.php"
+      },
+      {
+        "src": "wp-mail.php",
+        "dst": "/var/www/html/wp-mail.php"
+      },
+      {
+        "src": "wp-settings.php",
+        "dst": "/var/www/html/wp-settings.php"
+      },
+      {
+        "src": "wp-signup.php",
+        "dst": "/var/www/html/wp-signup.php"
+      },
+      {
+        "src": "wp-trackback.php",
+        "dst": "/var/www/html/wp-trackback.php"
+      },
+      {
+        "src": "xmlrpc.php",
+        "dst": "/var/www/html/xmlrpc.php"
+      },
+      {
+        "src": "wp-content",
+        "dst": "/usr/src/wordpress/wp-content"
+      },
+      {
+        "src": "readystack-vendor/sqlite-database-integration",
+        "dst": "/usr/src/wordpress/sqlite-database-integration"
+      }
+    ],
+    "_app_copies_note": "ENUMERATED (the nextcloud pattern), not '.': the WordPress root files + wp-admin + wp-includes go to the docroot /var/www/html; wp-content goes to /usr/src/wordpress/wp-content as the pristine seed the entrypoint copies into an empty volume; the assembled SQLite plugin goes outside the docroot. readme.html and license.txt ship as in the release; wp-config-sample.php does not (the image ships wp-config.php). If a future WordPress adds a root-level file, add it here (a missing src fails the COPY loudly; an unlisted new file would be silently absent).",
+    "source_date_epoch": 1795587761,
+    "source_date_epoch_provenance": "the time release 7.1.5-CE-ubuntu24.04-r5 was cut (2026-11-25T06:22:41Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 7be93a9688cf, dated 2026-11-18T16:27:36Z (source.commit_epoch).",
+    "commit": "7be93a9688cfcac7ea1c3ff00ad970ed8a47849b",
+    "release_notes_url": "https://wordpress.org/documentation/wordpress-version/version-{version_dashed}/",
+    "_release_notes_url_note": "github.com/WordPress/WordPress is a mirror with tags and no GitHub releases (api.github.com/repos/WordPress/WordPress/releases/tags/7.1.2 -> 404); wordpress.org's version page answered 200 (2026-10-06). release_notes.py fills {version_dashed}.",
+    "source_date_epoch_basis": "release-cut",
+    "commit_epoch": 1795019256
+  },
+  "binaries_from_source": null,
+  "runtime_packages": [
+    "apache2",
+    "libapache2-mod-php8.3",
+    "php8.3-cli",
+    "php8.3-curl",
+    "php8.3-mbstring",
+    "php8.3-xml",
+    "php8.3-gd",
+    "php8.3-intl",
+    "php8.3-zip",
+    "php8.3-bcmath",
+    "php8.3-mysql",
+    "php8.3-sqlite3",
+    "ca-certificates",
+    "curl",
+    "tzdata"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "wordpress",
+  "repo": "https://github.com/WordPress/WordPress",
+  "ref": "7.1.5",
+  "commit": "7be93a9688cfcac7ea1c3ff00ad970ed8a47849b",
+  "tree_listing_sha256": "5df7fcf34f277b0e192e059d398eb9764382fa3d3c922fed6c9e658d8cd9edb0",
+  "file_count": 5013
+}

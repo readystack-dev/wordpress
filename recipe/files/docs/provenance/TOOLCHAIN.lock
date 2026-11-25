@@ -1,0 +1,246 @@
+{
+  "apt_refresh": [
+    {
+      "min_version": "2:1.8.7-1ubuntu0.1",
+      "package": "libx11-6",
+      "reason": "CVE-2026-88806 (HIGH per Ubuntu, OSV UBUNTU-CVE-2026-88806; Scout rates it MEDIUM). noble-security published the fix 2026-10-12, after chain 540 vendored 2:1.8.7-1build1, so G8's OSV cross-check returned REPUBLISH_REQUIRED at publish (watch_queue 7537)."
+    },
+    {
+      "min_version": "2.4.58-1ubuntu8.19",
+      "package": "apache2-bin",
+      "reason": "USN-9090-1: apache2-bin 2.4.58-1ubuntu8.18 -> 2.4.58-1ubuntu8.19"
+    },
+    {
+      "min_version": "8.3.6-0ubuntu0.24.04.13",
+      "package": "php8.3-zip",
+      "reason": "CVE-2026-109618, CVE-2026-109619: php8.3-zip 8.3.6-0ubuntu0.24.04.12 -> 8.3.6-0ubuntu0.24.04.13"
+    },
+    {
+      "min_version": "2.4.58-1ubuntu8.19",
+      "package": "apache2",
+      "reason": "USN-9090-1: apache2 2.4.58-1ubuntu8.18 -> 2.4.58-1ubuntu8.19"
+    },
+    {
+      "min_version": "2.4.58-1ubuntu8.19",
+      "package": "apache2-data",
+      "reason": "USN-9090-1: apache2-data 2.4.58-1ubuntu8.18 -> 2.4.58-1ubuntu8.19"
+    },
+    {
+      "min_version": "2.4.58-1ubuntu8.19",
+      "package": "apache2-utils",
+      "reason": "USN-9090-1: apache2-utils 2.4.58-1ubuntu8.18 -> 2.4.58-1ubuntu8.19"
+    },
+    {
+      "min_version": "5.38.2-3.2ubuntu0.7",
+      "package": "libperl5.38t64",
+      "reason": "USN-9006-1: libperl5.38t64 5.38.2-3.2ubuntu0.6 -> 5.38.2-3.2ubuntu0.7"
+    },
+    {
+      "min_version": "5.38.2-3.2ubuntu0.7",
+      "package": "perl",
+      "reason": "USN-9006-1: perl 5.38.2-3.2ubuntu0.6 -> 5.38.2-3.2ubuntu0.7"
+    },
+    {
+      "min_version": "5.38.2-3.2ubuntu0.7",
+      "package": "perl-base",
+      "reason": "USN-9006-1: perl-base 5.38.2-3.2ubuntu0.6 -> 5.38.2-3.2ubuntu0.7"
+    },
+    {
+      "min_version": "5.38.2-3.2ubuntu0.7",
+      "package": "perl-modules-5.38",
+      "reason": "USN-9006-1: perl-modules-5.38 5.38.2-3.2ubuntu0.6 -> 5.38.2-3.2ubuntu0.7"
+    },
+    {
+      "min_version": "2.39-0ubuntu8.12",
+      "package": "libc-bin",
+      "reason": "UBUNTU-CVE-2026-84243: libc-bin 2.39-0ubuntu8.9 -> 2.39-0ubuntu8.12"
+    },
+    {
+      "min_version": "2.39-0ubuntu8.12",
+      "package": "libc6",
+      "reason": "UBUNTU-CVE-2026-84243: libc6 2.39-0ubuntu8.9 -> 2.39-0ubuntu8.12"
+    },
+    {
+      "min_version": "0.10.6-2ubuntu0.6",
+      "package": "libssh-4",
+      "reason": "USN-9187-1: libssh-4 0.10.6-2ubuntu0.5 -> 0.10.6-2ubuntu0.6"
+    },
+    {
+      "min_version": "1.17.6-1ubuntu4.10",
+      "package": "libheif-plugin-aomdec",
+      "reason": "USN-8846-2: libheif-plugin-aomdec 1.17.6-1ubuntu4.9 -> 1.17.6-1ubuntu4.10"
+    },
+    {
+      "min_version": "1.17.6-1ubuntu4.10",
+      "package": "libheif1",
+      "reason": "USN-8846-2: libheif1 1.17.6-1ubuntu4.9 -> 1.17.6-1ubuntu4.10"
+    }
+  ],
+  "build_method": "source-rebuild-php",
+  "chain_id": 1247,
+  "dep_bumps": [],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_packages": [
+    "apache2",
+    "libapache2-mod-php8.3",
+    "php8.3-cli",
+    "php8.3-curl",
+    "php8.3-mbstring",
+    "php8.3-xml",
+    "php8.3-gd",
+    "php8.3-intl",
+    "php8.3-zip",
+    "php8.3-bcmath",
+    "php8.3-mysql",
+    "php8.3-sqlite3",
+    "ca-certificates",
+    "curl",
+    "tzdata"
+  ],
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "wordpress",
+  "source": {
+    "app_copies": [
+      {
+        "dst": "/var/www/html/wp-admin",
+        "src": "wp-admin"
+      },
+      {
+        "dst": "/var/www/html/wp-includes",
+        "src": "wp-includes"
+      },
+      {
+        "dst": "/var/www/html/index.php",
+        "src": "index.php"
+      },
+      {
+        "dst": "/var/www/html/license.txt",
+        "src": "license.txt"
+      },
+      {
+        "dst": "/var/www/html/readme.html",
+        "src": "readme.html"
+      },
+      {
+        "dst": "/var/www/html/wp-activate.php",
+        "src": "wp-activate.php"
+      },
+      {
+        "dst": "/var/www/html/wp-blog-header.php",
+        "src": "wp-blog-header.php"
+      },
+      {
+        "dst": "/var/www/html/wp-comments-post.php",
+        "src": "wp-comments-post.php"
+      },
+      {
+        "dst": "/var/www/html/wp-cron.php",
+        "src": "wp-cron.php"
+      },
+      {
+        "dst": "/var/www/html/wp-links-opml.php",
+        "src": "wp-links-opml.php"
+      },
+      {
+        "dst": "/var/www/html/wp-load.php",
+        "src": "wp-load.php"
+      },
+      {
+        "dst": "/var/www/html/wp-login.php",
+        "src": "wp-login.php"
+      },
+      {
+        "dst": "/var/www/html/wp-mail.php",
+        "src": "wp-mail.php"
+      },
+      {
+        "dst": "/var/www/html/wp-settings.php",
+        "src": "wp-settings.php"
+      },
+      {
+        "dst": "/var/www/html/wp-signup.php",
+        "src": "wp-signup.php"
+      },
+      {
+        "dst": "/var/www/html/wp-trackback.php",
+        "src": "wp-trackback.php"
+      },
+      {
+        "dst": "/var/www/html/xmlrpc.php",
+        "src": "xmlrpc.php"
+      },
+      {
+        "dst": "/usr/src/wordpress/wp-content",
+        "src": "wp-content"
+      },
+      {
+        "dst": "/usr/src/wordpress/sqlite-database-integration",
+        "src": "readystack-vendor/sqlite-database-integration"
+      }
+    ],
+    "build_packages": [
+      "git",
+      "ca-certificates"
+    ],
+    "commit": "7be93a9688cfcac7ea1c3ff00ad970ed8a47849b",
+    "commit_epoch": 1795019256,
+    "php_extensions": [
+      "gd",
+      "intl",
+      "zip",
+      "exif",
+      "bcmath",
+      "mysqli",
+      "opcache",
+      "pdo_sqlite",
+      "curl",
+      "dom",
+      "mbstring",
+      "xml",
+      "fileinfo",
+      "sodium"
+    ],
+    "php_version": "8.3",
+    "prune_paths": [
+      ".git",
+      "wp-content/themes/twentyten",
+      "wp-content/themes/twentyeleven",
+      "wp-content/themes/twentytwelve",
+      "wp-content/themes/twentythirteen",
+      "wp-content/themes/twentyfourteen",
+      "wp-content/themes/twentyfifteen",
+      "wp-content/themes/twentysixteen",
+      "wp-content/themes/twentyseventeen",
+      "wp-content/themes/twentynineteen",
+      "wp-content/themes/twentytwenty",
+      "wp-content/themes/twentytwentyone",
+      "wp-content/themes/twentytwentytwo",
+      "wp-content/themes/twentytwentyfive/package.json",
+      "wp-content/themes/twentytwentyfive/package-lock.json"
+    ],
+    "ref": "7.1.5",
+    "release_notes_url": "https://wordpress.org/documentation/wordpress-version/version-{version_dashed}/",
+    "repo": "https://github.com/WordPress/WordPress",
+    "source_date_epoch": 1795587761,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release 7.1.5-CE-ubuntu24.04-r5 was cut (2026-11-25T06:22:41Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 7be93a9688cf, dated 2026-11-18T16:27:36Z (source.commit_epoch).",
+    "sqlite_integration": {
+      "commit": "085ea60b16c648d40464654afa667f0812c040de",
+      "commit_date": "2026-09-10T09:50:45+02:00",
+      "installed_at": "/usr/src/wordpress/sqlite-database-integration",
+      "license": "GPL-2.0-or-later",
+      "ref": "v3.0.2",
+      "repo": "https://github.com/WordPress/sqlite-database-integration"
+    },
+    "submodule_init_cmd": "git clone --depth 1 --branch v3.0.2 -q https://github.com/WordPress/sqlite-database-integration /tmp/sqlite-src && test \"$(git -C /tmp/sqlite-src rev-parse HEAD)\" = 085ea60b16c648d40464654afa667f0812c040de && mkdir -p /src/readystack-vendor && cp -R /tmp/sqlite-src/packages/plugin-sqlite-database-integration /src/readystack-vendor/sqlite-database-integration && rm /src/readystack-vendor/sqlite-database-integration/wp-includes/database && cp -R /tmp/sqlite-src/packages/mysql-on-sqlite/src /src/readystack-vendor/sqlite-database-integration/wp-includes/database && rm -f /src/readystack-vendor/sqlite-database-integration/composer.json && test -f /src/readystack-vendor/sqlite-database-integration/wp-includes/database/version.php && rm -rf /tmp/sqlite-src"
+  },
+  "version": "7.1.5"
+}
