@@ -74,10 +74,15 @@
       "min_version": "1.17.6-1ubuntu4.10",
       "package": "libheif1",
       "reason": "USN-8846-2: libheif1 1.17.6-1ubuntu4.9 -> 1.17.6-1ubuntu4.10"
+    },
+    {
+      "min_version": "2.6.1-2ubuntu0.7",
+      "package": "libexpat1",
+      "reason": "USN-9196-1: libexpat1 2.6.1-2ubuntu0.6 -> 2.6.1-2ubuntu0.7"
     }
   ],
   "build_method": "source-rebuild-php",
-  "chain_id": 1247,
+  "chain_id": 1272,
   "dep_bumps": [],
   "expected_residuals": [],
   "images": [
@@ -229,9 +234,9 @@
     "ref": "7.1.5",
     "release_notes_url": "https://wordpress.org/documentation/wordpress-version/version-{version_dashed}/",
     "repo": "https://github.com/WordPress/WordPress",
-    "source_date_epoch": 1795587761,
+    "source_date_epoch": 1795644316,
     "source_date_epoch_basis": "release-cut",
-    "source_date_epoch_provenance": "the time release 7.1.5-CE-ubuntu24.04-r5 was cut (2026-11-25T06:22:41Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 7be93a9688cf, dated 2026-11-18T16:27:36Z (source.commit_epoch).",
+    "source_date_epoch_provenance": "the time release 7.1.5-CE-ubuntu24.04-r6 was cut (2026-11-25T22:05:16Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 7be93a9688cf, dated 2026-11-18T16:27:36Z (source.commit_epoch).",
     "sqlite_integration": {
       "commit": "085ea60b16c648d40464654afa667f0812c040de",
       "commit_date": "2026-09-10T09:50:45+02:00",

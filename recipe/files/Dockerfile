@@ -33,7 +33,7 @@ RUN chmod 0755 /usr/local/bin/apache2-foreground && \
 RUN for sapi in apache2 cli; do \
       PHP_INI_SCAN_DIR=/etc/php/8.3/$sapi/conf.d php -c /etc/php/8.3/$sapi/php.ini -r '$m = array_map("strtolower", array_merge(get_loaded_extensions(), get_loaded_extensions(true))); $x = array_diff(array_slice($argv, 1), $m); if ($x) { fwrite(STDERR, "missing PHP extensions: " . implode(", ", $x) . "\n"); exit(1); }' "gd" "intl" "zip" "exif" "bcmath" "mysqli" "zend opcache" "pdo_sqlite" "curl" "dom" "mbstring" "xml" "fileinfo" "sodium" || { echo "for the $sapi configuration"; exit 1; }; \
     done
-ARG SOURCE_DATE_EPOCH=1795587761
+ARG SOURCE_DATE_EPOCH=1795644316
 RUN (getent passwd www-data >/dev/null 2>&1 || (groupadd -r www-data && useradd -r -g www-data -d /var/www/html www-data)) && \
     mkdir -p /var/www/html/wp-content /var/lib/wordpress /var/run/apache2 /var/lock/apache2 /var/log/apache2 && \
     : "${SOURCE_DATE_EPOCH:?SOURCE_DATE_EPOCH must be set for a reproducible build}" && \
@@ -73,7 +73,7 @@ RUN chown -R www-data:www-data /var/www/html/wp-content /var/lib/wordpress /var/
 LABEL org.opencontainers.image.title="WordPress"
 LABEL org.opencontainers.image.source="https://github.com/WordPress/WordPress"
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later"
-LABEL org.opencontainers.image.version="7.1.5-CE-ubuntu24.04-r5"
+LABEL org.opencontainers.image.version="7.1.5-CE-ubuntu24.04-r6"
 LABEL org.opencontainers.image.description="WordPress, the open-source publishing platform (GPL-2.0-or-later, PHP/Apache), with an embedded SQLite database by default."
 LABEL org.opencontainers.image.vendor="ReadyStack.dev"
 LABEL readystack.product="wordpress"

@@ -1,7 +1,7 @@
 {
   "schema": "kitforge.build_recipe.v1",
   "slug": "wordpress",
-  "image": "readystack/wordpress:7.1.5-CE-ubuntu24.04-r5",
+  "image": "readystack/wordpress:7.1.5-CE-ubuntu24.04-r6",
   "build_method": "source-rebuild-php",
   "source": {
     "repo": "https://github.com/WordPress/WordPress",
@@ -136,8 +136,8 @@
       }
     ],
     "_app_copies_note": "ENUMERATED (the nextcloud pattern), not '.': the WordPress root files + wp-admin + wp-includes go to the docroot /var/www/html; wp-content goes to /usr/src/wordpress/wp-content as the pristine seed the entrypoint copies into an empty volume; the assembled SQLite plugin goes outside the docroot. readme.html and license.txt ship as in the release; wp-config-sample.php does not (the image ships wp-config.php). If a future WordPress adds a root-level file, add it here (a missing src fails the COPY loudly; an unlisted new file would be silently absent).",
-    "source_date_epoch": 1795587761,
-    "source_date_epoch_provenance": "the time release 7.1.5-CE-ubuntu24.04-r5 was cut (2026-11-25T06:22:41Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 7be93a9688cf, dated 2026-11-18T16:27:36Z (source.commit_epoch).",
+    "source_date_epoch": 1795644316,
+    "source_date_epoch_provenance": "the time release 7.1.5-CE-ubuntu24.04-r6 was cut (2026-11-25T22:05:16Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 7be93a9688cf, dated 2026-11-18T16:27:36Z (source.commit_epoch).",
     "commit": "7be93a9688cfcac7ea1c3ff00ad970ed8a47849b",
     "release_notes_url": "https://wordpress.org/documentation/wordpress-version/version-{version_dashed}/",
     "_release_notes_url_note": "github.com/WordPress/WordPress is a mirror with tags and no GitHub releases (api.github.com/repos/WordPress/WordPress/releases/tags/7.1.2 -> 404); wordpress.org's version page answered 200 (2026-10-06). release_notes.py fills {version_dashed}.",

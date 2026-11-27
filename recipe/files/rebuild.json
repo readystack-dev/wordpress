@@ -16,8 +16,8 @@
     "context": ".",
     "dockerfile": "Dockerfile.offline.pinned",
     "mtime_policy": "clamp",
-    "source_date_epoch": 1795587761,
-    "tree_hash": "sha256:d90002fb33f4deba6c5ab918662df60f14b8116e3be63c66cee1bee9a385e7bc"
+    "source_date_epoch": 1795644316,
+    "tree_hash": "sha256:6e4f62e1c2252d65f8e067bda8712e9bb6998e7a622151d5e9a4bbf1d5ac8352"
   },
   "probe": {
     "http_path": "/?rest_route=/&_fields=name,url",
@@ -26,8 +26,8 @@
   },
   "schema": "readystack-rebuild-bundle/v0.1",
   "subject": {
-    "config_digest": "sha256:db2be01e8a2107afad870155daed09b9be306c77ad62cebbe6d2b7896a20d497",
-    "image_manifest_digest": "sha256:42d0fb00e910d9fe4dc6bef5ad35c795d74e88eefb77b7c0a755eaaaba4a2a2f",
-    "name": "docker.io/readystack/wordpress:7.1.5-CE-ubuntu24.04-r5"
+    "config_digest": "sha256:b2d44efd3fac0d0a7b9aa49772b266e4e6f6c3b26c566005698264fe978f18a2",
+    "image_manifest_digest": "sha256:e94ad90b14151644950c33db33fe845b979212fd21fe628c12c36a9ddb3f6975",
+    "name": "docker.io/readystack/wordpress:7.1.5-CE-ubuntu24.04-r6"
   }
 }
