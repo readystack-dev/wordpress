@@ -1,12 +1,12 @@
 # WordPress: ReadyStack build kit
 
-The offline build kit for the Docker image `readystack/wordpress:7.1.5-CE-ubuntu24.04-r6`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
+The offline build kit for the Docker image `readystack/wordpress:7.1.5-CE-ubuntu24.04-r7`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
 
-- Release: [7.1.5-CE-ubuntu24.04-r6](https://github.com/readystack-dev/wordpress/releases/tag/7.1.5-CE-ubuntu24.04-r6)
-- Image: [`docker.io/readystack/wordpress:7.1.5-CE-ubuntu24.04-r6`](https://hub.docker.com/r/readystack/wordpress/tags), manifest digest `sha256:e94ad90b14151644950c33db33fe845b979212fd21fe628c12c36a9ddb3f6975`
+- Release: [7.1.5-CE-ubuntu24.04-r7](https://github.com/readystack-dev/wordpress/releases/tag/7.1.5-CE-ubuntu24.04-r7)
+- Image: [`docker.io/readystack/wordpress:7.1.5-CE-ubuntu24.04-r7`](https://hub.docker.com/r/readystack/wordpress/tags), manifest digest `sha256:6f413a20130bd32fc68b53773a832ba9d1f0c787adeaa9eb9671c448fdaa7bb1`
 - Product page: https://readystack.dev/products/wordpress
 - Source and build recipe: https://readystack.dev/products/wordpress/recipe
-- Build trail: https://readystack.dev/products/wordpress/trail/7.1.5-CE-ubuntu24.04-r6
+- Build trail: https://readystack.dev/products/wordpress/trail/7.1.5-CE-ubuntu24.04-r7
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=wordpress
 
 ## The image
@@ -25,12 +25,12 @@ From the upstream project's own description: https://wordpress.org/about/, https
 
 ## This release
 
-- Docker Scout policy grade at release: **A** (94%), graded 2026-11-25 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-27 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
   - Docker Scout counts 135 packages with copyleft licences (GPL, LGPL, MPL), all of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component).
 - Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
 - Runs as a non-root user (`www-data`).
 - Attestations on the image: an SPDX SBOM and SLSA provenance v1.
-- Rebuilt from this kit with network egress blocked on 2026-11-25; the rebuilt image digest is the published one.
+- Rebuilt from this kit with network egress blocked on 2026-11-27; the rebuilt image digest is the published one.
 - Base: Ubuntu 24.04.
 
 The current grade, measured again every day, is on https://readystack.dev/products/wordpress.
@@ -39,7 +39,7 @@ WordPress is distributed under its upstream licence (GPL-2.0-or-later); the kit 
 
 ## Download
 
-From the [7.1.5-CE-ubuntu24.04-r6 release](https://github.com/readystack-dev/wordpress/releases/tag/7.1.5-CE-ubuntu24.04-r6): `ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r6.tar.gz` (268.5 MB), SHA-256 `3f531029f3dede139dd95ead69d9a354b65950d55cf4f413a0b519f58c430cd3`.
+From the [7.1.5-CE-ubuntu24.04-r7 release](https://github.com/readystack-dev/wordpress/releases/tag/7.1.5-CE-ubuntu24.04-r7): `ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r7.tar.gz` (268.5 MB), SHA-256 `ff63bf2673f053e5b5172b4fefb43820a741712dac2573f67aa28e0f4972e62d`.
 
 ```sh
 sha256sum --check --ignore-missing SHA256SUMS
@@ -51,18 +51,18 @@ The rebuild statement is signed with the ReadyStack release key. Check the signa
 
 ```sh
 cosign verify-blob --key https://readystack.dev/keys/cosign.pub \
-  --bundle ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r6.rebuild.json.sigstore ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r6.rebuild.json
+  --bundle ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r7.rebuild.json.sigstore ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r7.rebuild.json
 ```
 
 Unpack with `-p` so file modes are kept, then follow the kit's own README.md and docs/REBUILD.md:
 
 ```sh
-tar -xpzf ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r6.tar.gz
-cd 7.1.5-CE-ubuntu24.04-r6
+tar -xpzf ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r7.tar.gz
+cd 7.1.5-CE-ubuntu24.04-r7
 less README.md docs/REBUILD.md
 ```
 
-The build trail (`ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r6.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
+The build trail (`ReadyStack-wordpress-7.1.5-CE-ubuntu24.04-r7.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
 
 ## This repository
 

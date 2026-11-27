@@ -1,6 +1,6 @@
-image_manifest_digest=sha256:e94ad90b14151644950c33db33fe845b979212fd21fe628c12c36a9ddb3f6975
-config_digest=sha256:b2d44efd3fac0d0a7b9aa49772b266e4e6f6c3b26c566005698264fe978f18a2
-tag=readystack/wordpress:7.1.5-CE-ubuntu24.04-r6
+image_manifest_digest=sha256:6f413a20130bd32fc68b53773a832ba9d1f0c787adeaa9eb9671c448fdaa7bb1
+config_digest=sha256:6a15c8bd476d46fb3eb081a271c3d78c28b68d271174a03979537ad0685684f5
+tag=readystack/wordpress:7.1.5-CE-ubuntu24.04-r7
 probe_port=8080
 probe_path=/?rest_route=/&_fields=name,url
 probe_timeout=180
